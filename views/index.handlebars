@@ -1,1 +1,85 @@
-<h3>This is index pages</h3>
+<div class="d-flex justify-content-center mt-5">
+  <div class="col-5 mt-3">
+    <form action="/category" method="post">
+      <select class="form-select" id="category">
+        <option disabled selected>類別</option>
+        <option value="1">家居物業</option>
+        <option value="2">交通出行</option>
+        <option value="3">休閒娛樂</option>
+        <option value="4">餐飲食品</option>
+        <option value="5">其他</option>
+      </select>
+    </form>
+  </div>
+</div>
+
+{{!-- Total amount --}}
+<div class="row text-center mt-5 mb-3">
+  <div class="col">
+    <p>總金額:
+      <strong class="fs-1 text-danger">25260</strong>
+    </p>
+  </div>
+</div>
+
+
+{{!-- Record --}}
+<div class="d-flex justify-content-center ">
+  <ul class="list-group w-25" >
+    <li class="list-group-item d-flex justify-content-center align-items-center" style="background-color: rgba(0,0,255,.1)" >
+      {{!-- icon --}}
+      <div>
+        <i class="fa-solid fa-utensils"></i>
+      </div>
+      {{!-- category & date --}}
+      <div class="ms-2 me-auto">
+        <div class="fw-bold  d-flex flex-column text-start">午餐
+        </div>
+        <small>2019/04/23</small>
+      </div>
+      {{!-- amount --}}
+        <span style="color:blue;font-weight:bold">60</span>
+      {{!-- button --}}
+      <div class="col-auto m-4">
+        <a class="btn btn-outline-success" href="/record/{{ this._id }}edit">修改</a>
+        <form action="/record/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
+          <button class="btn btn-outline-danger" type="submit">刪除</button>
+        </form>
+      </div>
+    </li>
+    {{!-- //// --}}
+    <li class="list-group-item d-flex justify-content-center align-items-center ">
+      {{!-- icon --}}
+      <div>
+        <i class="fa-solid fa-van-shuttle"></i>
+      </div>
+      {{!-- category & date --}}
+      <div class="ms-2 me-auto">
+        <div class="fw-bold  d-flex flex-column text-start">捷運
+        </div>
+        <small>2019/04/23</small>
+      </div>
+      {{!-- amount --}}
+      <span style="color:blue;font-weight:bold">120</span>
+      {{!-- button --}}
+      <div class="col-auto m-4">
+        <a class="btn btn-outline-success" href="/record/{{ this._id }}edit">修改</a>
+        <form action="/record/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
+          <button class="btn btn-outline-danger" type="submit">刪除</button>
+        </form>
+      </div>
+    </li>
+  </ul> 
+</div>
+
+{{!-- create expense --}}
+<div class="row-auto text-center mt-3">
+  <a class="btn btn-warning btn-outline-secondary" href="/record/new">新增支出</a>
+</div>
+
+
+
+
+
+
+
