@@ -1,7 +1,7 @@
 <form action="/records" method="POST">
   <div class="d-flex justify-content-center mt-5">
-    <div class="col-3 mt-3  text-center" >
-      <h3>請輸入你的支出</h3>
+    <div class="col-3 mt-3  text-center">
+      <h3>請修改你的支出</h3>
       <p style="color:red" class="mb-0">*必填欄位</p>
     </div>
   </div>
@@ -17,7 +17,8 @@
   <div class="d-flex justify-content-center">
     <div class="col-3 mt-3">
       <label for="date" class="form-label w-2 p-2 text-center">日期<span style="color: red;">*</span>：</label>
-      <input type="date" class="form-control p-2 flex-grow-1" id="date" aria-describedby="date" placeholder="date" name="date" required>
+      <input type="date" class="form-control p-2 flex-grow-1" id="date" aria-describedby="date" placeholder="date"
+        name="date" required>
     </div>
   </div>
 
@@ -37,13 +38,12 @@
 
   <div class="d-flex justify-content-center">
     <div class="col-3 mt-3">
-        <label for="amount"  class="form-label w-2 p-2 text-center">金額<span style="color: red;">*</span>：</label>
-        <input type="number" min="0" class="form-control p-2 flex-grow-1" id="amount" aria-describedby="amount" placeholder="金額"
-          name="amount" required>
+      <label for="amount" class="form-label w-2 p-2 text-center">金額<span style="color: red;">*</span>：</label>
+      <input type="number" min="0" class="form-control p-2 flex-grow-1" id="amount" aria-describedby="amount"
+        placeholder="金額" name="amount" required>
     </div>
   </div>
 
   <div class="d-flex justify-content-center mt-5">
-    <button type="submit" class="btn btn-warning">新增支出</button>
+    <button type="submit" class="btn btn-success">修改支出</button>
 </form>
-

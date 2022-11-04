@@ -18,6 +18,10 @@ app.get('/record/new', (req, res) => {
   res.render('new')
 })
 
+app.get('/record/edit', (req, res) => {
+  res.render('edit')
+})
+
 app.listen(PORT, () => {
   console.log(`App is listening on http://localhost:${PORT}`)
 })
