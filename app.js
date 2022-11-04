@@ -14,11 +14,15 @@ app.get('/', (req, res) => {
   res.render('index')
 })
 
-app.get('/record/new', (req, res) => {
+app.get('/records/new', (req, res) => {
   res.render('new')
 })
 
-app.get('/record/edit', (req, res) => {
+app.post('/records', (req, res) => {
+  const { name, date, category, amount } = req.body
+})
+
+app.get('/records/edit', (req, res) => {
   res.render('edit')
 })
 

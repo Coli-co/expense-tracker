@@ -10,14 +10,14 @@ const recordSchema = new Schema({
     type: Date,
     require: true
   },
-  amount: {
-    type: Number,
-    require: true
-  },
   categoryId: {
     type: Number,
     ref: 'Category',
     index: true,
+    require: true
+  },
+  amount: {
+    type: Number,
     require: true
   },
   userId: {

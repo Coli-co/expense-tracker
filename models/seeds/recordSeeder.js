@@ -22,32 +22,32 @@ const seedRecord = [
   {
     name: '午餐',
     date: '2022-4-23',
-    amount: 60,
-    categoryId: 4
+    categoryId: 4,
+    amount: 60
   },
   {
     name: '晚餐',
     date: '2022-4-23',
-    amount: 60,
-    categoryId: 4
+    categoryId: 4,
+    amount: 60
   },
   {
     name: '捷運',
     date: '2022-4-24',
-    amount: 120,
-    categoryId: 2
+    categoryId: 2,
+    amount: 120
   },
   {
     name: '電影:驚奇隊長',
     date: '2022-4-23',
-    amount: 60,
-    categoryId: 3
+    categoryId: 3,
+    amount: 60
   },
   {
     name: '租金',
     date: '2022-4-1',
-    amount: 25000,
-    categoryId: 1
+    categoryId: 1,
+    amount: 25000
   }
 ]
 
