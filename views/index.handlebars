@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-center mt-5">
   <div class="col-5 mt-3">
-    <form action="/category" method="post">
-      <select class="form-select" id="category">
+    <form action="/category" method="POST">
+      <select class="form-select" id="category" name="categoryId" onchange="this.form.submit()">
         <option disabled selected>類別</option>
         <option value="1">家居物業</option>
         <option value="2">交通出行</option>
@@ -17,7 +17,7 @@
 <div class="row text-center mt-5 mb-3">
   <div class="col">
     <p>總金額:
-      <strong class="fs-1 text-danger">25260</strong>
+      <strong class="fs-1 text-danger">{{total}}</strong>
     </p>
   </div>
 </div>
@@ -25,50 +25,57 @@
 
 {{!-- Record --}}
 <div class="d-flex justify-content-center ">
-  <ul class="list-group w-25" >
-    <li class="list-group-item d-flex justify-content-center align-items-center" style="background-color: rgba(0,0,255,.1)" >
+  <ul class="list-group w-35" >
+    {{#each records}}
+    {{!-- even index: color background --}}
+    {{#if (ifEven @index)}}
+    <li class="list-group-item d-flex justify-content-center align-items-center " style="background-color: rgba(0,0,255,.1)" >
       {{!-- icon --}}
       <div>
-        <i class="fa-solid fa-utensils"></i>
+        <i class="{{iconChoose this.categoryId}}"></i>
       </div>
       {{!-- category & date --}}
       <div class="ms-2 me-auto">
-        <div class="fw-bold  d-flex flex-column text-start">午餐
+        <div class="fw-bold  d-flex flex-column text-start">{{this.name}}
         </div>
-        <small>2019/04/23</small>
+        <small>{{ dateFormat this.date }}</small>
       </div>
       {{!-- amount --}}
-        <span style="color:blue;font-weight:bold">60</span>
+
+      <span style="color:blue;font-weight:bold">{{this.amount}}元</span>
       {{!-- button --}}
       <div class="col-auto m-4">
-        <a class="btn btn-outline-success" href="/record/{{ this._id }}edit">修改</a>
-        <form action="/record/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
+        <a class="btn btn-outline-success" href="/records/{{ this._id }}">修改</a>
+        <form action="/records/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
           <button class="btn btn-outline-danger" type="submit">刪除</button>
         </form>
       </div>
     </li>
-    {{!-- //// --}}
-    <li class="list-group-item d-flex justify-content-center align-items-center ">
+    {{else}}
+    <li class="list-group-item d-flex justify-content-center align-items-center" >
       {{!-- icon --}}
       <div>
-        <i class="fa-solid fa-van-shuttle"></i>
+        <i class="{{iconChoose this.categoryId}}"></i>
       </div>
       {{!-- category & date --}}
       <div class="ms-2 me-auto">
-        <div class="fw-bold  d-flex flex-column text-start">捷運
+        <div class="fw-bold  d-flex flex-column text-start">{{this.name}}
         </div>
-        <small>2019/04/23</small>
+        <small>{{ dateFormat this.date }}</small>
       </div>
       {{!-- amount --}}
-      <span style="color:blue;font-weight:bold">120</span>
+    
+      <span style="color:blue;font-weight:bold">{{this.amount}}元</span>
       {{!-- button --}}
       <div class="col-auto m-4">
-        <a class="btn btn-outline-success" href="/record/{{ this._id }}edit">修改</a>
-        <form action="/record/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
+        <a class="btn btn-outline-success" href="/records/{{ this._id }}">修改</a>
+        <form action="/records/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
           <button class="btn btn-outline-danger" type="submit">刪除</button>
         </form>
       </div>
     </li>
+    {{/if}}
+    {{/each}}
   </ul> 
 </div>
 
