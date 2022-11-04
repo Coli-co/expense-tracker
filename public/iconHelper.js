@@ -22,4 +22,15 @@ const iconChoose = handlebars.registerHelper('iconChoose', function (number) {
   return CATEGORY[item]
 })
 
-module.exports = iconChoose
+const iconNum = handlebars.registerHelper(
+  'iconNum',
+  function (valueOne, valueTwo) {
+    if (Number(valueOne) === Number(valueTwo)) {
+      return true
+    } else {
+      return false
+    }
+  }
+)
+
+module.exports = { iconChoose, iconNum }
