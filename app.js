@@ -19,7 +19,7 @@ app.use(express.static('public'))
 app.use(methodOverride('_method'))
 
 app.get('/', (req, res) => {
-  Record.find({})
+  return Record.find({})
     .lean()
     .sort({ date: 'desc' })
     .then((records) => {
@@ -42,7 +42,6 @@ app.get('/records/new', (req, res) => {
 app.post('/records', (req, res) => {
   return Record.create(req.body)
     .then(() => {
-      console.log('Record created')
       res.redirect('/')
     })
     .catch((err) => console.log(err))
@@ -62,7 +61,6 @@ app.get('/records/:id', (req, res) => {
 app.put('/records/:id', (req, res) => {
   const id = req.params.id
   const { name, date, categoryId, amount } = req.body
-
   return Record.findById(id)
     .then((records) => {
       records.name = name
@@ -71,6 +69,14 @@ app.put('/records/:id', (req, res) => {
       records.amount = amount
       return records.save()
     })
+    .then(() => res.redirect('/'))
+    .catch((err) => console.log(err))
+})
+
+app.delete('/records/:id', (req, res) => {
+  const id = req.params.id
+  return Record.findById(id)
+    .then((records) => records.remove())
     .then(() => res.redirect('/'))
     .catch((err) => console.log(err))
 })

@@ -46,8 +46,19 @@
       {{!-- button --}}
       <div class="col-auto m-4">
         <a class="btn btn-outline-success" href="/records/{{ this._id }}">修改</a>
-        <form action="/records/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
+        <form action="/records/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;" onsubmit="return deleteRecord()">
           <button class="btn btn-outline-danger" type="submit">刪除</button>
+          <script>
+            function deleteRecord(){
+              let result = confirm('確定要刪除該筆紀錄 ?')
+              if (result){
+                alert('成功刪除這筆紀錄!')
+                return true
+              } else{
+                return false
+              }
+            }
+          </script>
         </form>
       </div>
     </li>
@@ -69,8 +80,19 @@
       {{!-- button --}}
       <div class="col-auto m-4">
         <a class="btn btn-outline-success" href="/records/{{ this._id }}">修改</a>
-        <form action="/records/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
+        <form action="/records/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;" onsubmit="return deleteRecord()">
           <button class="btn btn-outline-danger" type="submit">刪除</button>
+          <script>
+            function deleteRecord() {
+              let result = confirm('確定要刪除該筆紀錄 ?')
+              if (result) {
+                alert('成功刪除這筆紀錄!')
+                return true
+              } else {
+                return false
+              }
+            }
+          </script>
         </form>
       </div>
     </li>
