@@ -87,6 +87,7 @@ app.post('/category', (req, res) => {
   const categoryId = Number(req.body.categoryId)
   Record.find({ categoryId })
     .lean()
+    .sort({ date: 'desc' })
     .then((records) => {
       let total = 0
       for (let i = 0; i < records.length; i++) {

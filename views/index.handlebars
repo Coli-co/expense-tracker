@@ -25,11 +25,11 @@
 
 {{!-- Record --}}
 <div class="d-flex justify-content-center ">
-  <ul class="list-group w-35" >
+  <ul class="list-group w-35" style="width: 450px;">
     {{#each records}}
     {{!-- even index: color background --}}
     {{#if (ifEven @index)}}
-    <li class="list-group-item d-flex justify-content-center align-items-center " style="background-color: rgba(0,0,255,.1)" >
+    <li class="list-group-item d-flex justify-content-center align-items-center " style="background-color: rgba(0,0,255,.1);">
       {{!-- icon --}}
       <div>
         <i class="{{iconChoose this.categoryId}}"></i>
