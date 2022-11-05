@@ -73,11 +73,27 @@ app.put('/records/:id', (req, res) => {
     .catch((err) => console.log(err))
 })
 
+// delete record
 app.delete('/records/:id', (req, res) => {
   const id = req.params.id
   return Record.findById(id)
     .then((records) => records.remove())
     .then(() => res.redirect('/'))
+    .catch((err) => console.log(err))
+})
+
+// post category
+app.post('/category', (req, res) => {
+  const categoryId = Number(req.body.categoryId)
+  Record.find({ categoryId })
+    .lean()
+    .then((records) => {
+      let total = 0
+      for (let i = 0; i < records.length; i++) {
+        total += records[i].amount
+      }
+      res.render('index', { records, total })
+    })
     .catch((err) => console.log(err))
 })
 
