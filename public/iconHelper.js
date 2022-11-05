@@ -12,9 +12,11 @@ const iconNumber = {
   2: '交通出行',
   3: '休閒娛樂',
   4: '餐飲食品',
-  5: '其他'
+  5: '其他',
+  6: '所有類別'
 }
 
+// handlebars helper: icon html chosen
 const iconChoose = handlebars.registerHelper('iconChoose', function (number) {
   // choose number
   const item = iconNumber[number]
@@ -22,6 +24,7 @@ const iconChoose = handlebars.registerHelper('iconChoose', function (number) {
   return CATEGORY[item]
 })
 
+// handlebars helper: category number chosen
 const iconNum = handlebars.registerHelper(
   'iconNum',
   function (valueOne, valueTwo) {

@@ -25,8 +25,7 @@
   <div class="d-flex justify-content-center">
     <div class="col-3 mt-3">
       <label for="date" class="form-label w-2 p-2 text-center">類別<span style="color: red;">*</span>：</label>
-      <select class="form-select" id="category" name="categoryId" value="{{ records.categoryId }}">
-     
+      <select class="form-select" id="category" name="categoryId" value="{{ records.categoryId }}">    
         <option disabled selected>類別*</option>
         <option value="1" {{#if (iconNum records.categoryId 1) }}  selected {{/if}}>家居物業</option>
         <option value="2" {{#if (iconNum  records.categoryId 2) }}  selected {{/if}}>交通出行</option>
