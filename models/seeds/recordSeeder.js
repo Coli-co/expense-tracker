@@ -41,7 +41,7 @@ const seedRecord = [
     name: '電影:驚奇隊長',
     date: '2022-4-23',
     categoryId: 3,
-    amount: 60
+    amount: 220
   },
   {
     name: '租金',
