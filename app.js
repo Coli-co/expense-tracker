@@ -21,7 +21,7 @@ app.use(
   session({
     secret: 'ThisIsMySecret',
     resave: false,
-    saveUnitialized: true
+    saveUninitialized: true
   })
 )
 app.use(bodyParser.urlencoded({ extended: true }))

@@ -5,10 +5,10 @@ const Record = require('../../models/record')
 // post category
 router.post('/', (req, res) => {
   const categoryId = Number(req.body.categoryId)
-
+  const userId = req.user._id
   //  all category
   if (Number(categoryId) === 6) {
-    return Record.find({})
+    return Record.find({ userId })
       .lean()
       .sort({ date: 'desc' })
       .then((records) => {
@@ -21,7 +21,7 @@ router.post('/', (req, res) => {
       .catch((err) => console.log(err))
   }
   // specific category
-  return Record.find({ categoryId })
+  return Record.find({ categoryId, userId })
     .lean()
     .sort({ date: 'desc' })
     .then((records) => {
