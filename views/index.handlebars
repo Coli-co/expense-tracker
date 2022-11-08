@@ -1,16 +1,24 @@
 <div class="d-flex justify-content-center mt-5">
   <div class="col-auto mt-3" align="center">
-    <form action="/category" method="POST">
-      <select class="form-select" id="category" name="categoryId" style="width:450px; text-align:center"  onchange="this.form.submit()">
+    <form action="/category" method="GET">
+      <select class="form-select" id="category" name="categoryId" style="width:450px; text-align:center" onchange="this.form.submit()">
       <option disabled selected>類別</option>
       <option value="1">家居物業</option>
       <option value="2">交通出行</option>
       <option value="3">休閒娛樂</option>
       <option value="4">餐飲食品</option>
       <option value="5">其他</option>
-      <option value="6">所有類別</option>
+      <option value="6">所有類別</option> 
       </select>
     </form>
+    {{!-- 固定類別選項 --}}
+    <script>
+      let form = document.querySelectorAll('.form-select option')
+      form.forEach(element => {
+        if (element.value == {{ this.categoryId }})
+        element.setAttribute('selected', 'selected') 
+      })
+    </script>
   </div>
 </div>
 

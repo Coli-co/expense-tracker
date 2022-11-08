@@ -36,4 +36,7 @@ const iconNum = handlebars.registerHelper(
   }
 )
 
-module.exports = { iconChoose, iconNum }
+module.exports = {
+  iconChoose,
+  iconNum
+}

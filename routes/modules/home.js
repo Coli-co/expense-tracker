@@ -4,6 +4,7 @@ const Record = require('../../models/record')
 
 router.get('/', (req, res) => {
   const userId = req.user._id
+
   return Record.find({ userId })
     .lean()
     .sort({ date: 'desc' })
